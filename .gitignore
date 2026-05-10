@@ -1,0 +1,17 @@
+# STATUS.md nunca vai ao GitHub (estado vivo local)
+STATUS.md
+
+# Servidores de desenvolvimento
+__pycache__/
+*.pyc
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
