@@ -144,9 +144,7 @@ Tamanho total: ~35 KB de código  |  0 dependências  |  Offline-first
 
 ## Autor
 
-**Luiz Antonio Celiberto Junior**
-Professor Adjunto — Engenharia de Instrumentação, Automação e Robótica
-Universidade Federal do ABC (UFABC) · 2026
+**Luiz Antonio Celiberto Junior** · 2026
 
 ## Licença
 

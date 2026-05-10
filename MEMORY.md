@@ -162,3 +162,13 @@ Transições gerenciadas por `engine/sceneManager.js`.
 > Append-only. Quem aterar acima precisa registrar aqui.
 
 - **[a preencher]** Projeto iniciado. Decisões 2.1–2.7 firmadas.
+
+---
+
+## Contexto do desenvolvedor
+
+- **Desenvolvedor**: Luiz Antonio Celiberto Junior
+- **Instituição**: UFABC — Engenharia de Instrumentação, Automação e Robótica
+- **Preferências**: Python comentado em português · Git via SSH · respostas detalhadas
+- **Terminologia**: pode usar linguagem técnica de RL, robótica e visão computacional
+- **Ambiente**: Windows / Linux dual boot — partição exFAT compartilhada em D:\ e /mnt/projetos
