@@ -29,7 +29,7 @@ export default {
     blinkTimer++;
     if (blinkTimer >= 25) { blinkTimer = 0; blinkOn = !blinkOn; }
     // Só vai para o TÍTULO (nunca direto ao jogo)
-    if (wasActionJustPressed()) sceneManager.switch('title');
+    if (wasActionJustPressed()) sceneManager.switch('nameinput', { total, won: true });
   },
 
   render(alpha) {
@@ -118,7 +118,7 @@ export default {
     if (blinkOn) {
       ctx.fillStyle = P.WHITE;
       ctx.font = '5px monospace';
-      ctx.fillText('[ ESPACO ] jogar novamente', W / 2, H - 12);
+      ctx.fillText('[ ESPACO ] continuar', W / 2, H - 12);
     }
 
     ctx.textAlign = 'left';

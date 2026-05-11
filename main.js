@@ -8,17 +8,21 @@ import { SCALE } from './engine/constants.js';
 import { setCallbacks, startLoop } from './engine/loop.js';
 import { sceneManager } from './engine/sceneManager.js';
 
-import titleScene    from './scenes/title.js';
-import storyScene    from './scenes/story.js';
-import gameScene     from './scenes/game.js';
-import victoryScene  from './scenes/victory.js';
-import gameoverScene from './scenes/gameover.js';
+import titleScene     from './scenes/title.js';
+import storyScene     from './scenes/story.js';
+import gameScene      from './scenes/game.js';
+import victoryScene   from './scenes/victory.js';
+import gameoverScene  from './scenes/gameover.js';
+import nameinputScene from './scenes/nameinput.js';
+import scoresScene    from './scenes/scores.js';
 
-sceneManager.register('title',    titleScene);
-sceneManager.register('story',    storyScene);
-sceneManager.register('game',     gameScene);
-sceneManager.register('victory',  victoryScene);
-sceneManager.register('gameover', gameoverScene);
+sceneManager.register('title',     titleScene);
+sceneManager.register('story',     storyScene);
+sceneManager.register('game',      gameScene);
+sceneManager.register('victory',   victoryScene);
+sceneManager.register('gameover',  gameoverScene);
+sceneManager.register('nameinput', nameinputScene);
+sceneManager.register('scores',    scoresScene);
 
 setCallbacks(
   (dt) => sceneManager.update(dt),

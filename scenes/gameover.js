@@ -25,7 +25,7 @@ export default {
     blinkTimer++;
     if (blinkTimer >= 25) { blinkTimer = 0; blinkOn = !blinkOn; }
     // Só vai para o TÍTULO (nunca direto para o jogo)
-    if (wasActionJustPressed()) sceneManager.switch('title');
+    if (wasActionJustPressed()) sceneManager.switch('nameinput', { total: scoreMeters, won: false });
   },
 
   render(alpha) {
@@ -97,7 +97,7 @@ export default {
     // ── Press space (só título) ───────────────────────────────────────────
     ctx.fillStyle = blinkOn ? P.WHITE : '#444';
     ctx.font = 'bold 5px monospace';
-    ctx.fillText('[ ESPACO ] Ir para o inicio', W / 2, H - 11);
+    ctx.fillText('[ ESPACO ] continuar', W / 2, H - 11);
 
     ctx.textAlign = 'left';
   },

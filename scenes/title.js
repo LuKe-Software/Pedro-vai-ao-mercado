@@ -47,8 +47,8 @@ export default {
     pedroFrameTimer++;
     if (pedroFrameTimer >= 7) { pedroFrame = 1 - pedroFrame; pedroFrameTimer = 0; }
     if (wasJustPressed('KeyM')) toggleMute();
+    if (wasJustPressed('KeyT')) { sceneManager.switch('scores', { newEntryRank: -1 }); return; }
     if (wasActionJustPressed()) {
-      // Inicia música na primeira interação do usuário (requisito do browser)
       audioInit();
       if (!isMusicPlaying()) musicStart();
       sceneManager.switch('story');
@@ -150,27 +150,35 @@ export default {
 
     // ── Rodapé ────────────────────────────────────────────────────────────
     ctx.fillStyle = 'rgba(4,2,12,0.90)';
-    ctx.fillRect(0, H - 15, W, 15);
+    ctx.fillRect(0, H - 22, W, 22);
     ctx.fillStyle = P.PEDRO_SHIRT;
-    ctx.fillRect(0, H - 15, W, 1);
+    ctx.fillRect(0, H - 22, W, 1);
+    ctx.fillStyle = '#111';
+    ctx.fillRect(0, H - 12, W, 1);
 
     const { highScore = 0 } = loadState();
-    ctx.fillStyle = highScore > 0 ? '#AAA' : '#444';
-    ctx.font = '4px monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText(highScore > 0 ? `REC: ${highScore} pts` : '', 3, H - 5);
 
+    // Linha superior do rodapé
+    ctx.font = '4px monospace';
+    ctx.fillStyle = highScore > 0 ? '#AAA' : '#333';
+    ctx.textAlign = 'left';
+    ctx.fillText(highScore > 0 ? `REC: ${highScore} pts` : '', 3, H - 15);
+
+    ctx.fillStyle = '#445566';
+    ctx.textAlign = 'center';
+    ctx.fillText('[T] TOP 10', W / 2, H - 15);
+
+    ctx.fillStyle = '#444';
+    ctx.textAlign = 'right';
+    ctx.fillText(`[M] ${isMuted() ? 'OFF' : 'SOM'}`, W - 3, H - 15);
+
+    // Linha inferior do rodapé
     if (blinkOn) {
       ctx.fillStyle = P.WHITE;
       ctx.font = 'bold 5px monospace';
       ctx.textAlign = 'center';
       ctx.fillText('[ ESPACO ] JOGAR', W / 2, H - 5);
     }
-
-    ctx.fillStyle = '#444';
-    ctx.font = '4px monospace';
-    ctx.textAlign = 'right';
-    ctx.fillText(`[M] ${isMuted() ? 'OFF' : 'SOM'}`, W - 3, H - 5);
 
     ctx.textAlign = 'left';
   },
