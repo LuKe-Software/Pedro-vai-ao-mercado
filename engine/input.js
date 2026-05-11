@@ -64,6 +64,7 @@ export function wasActionJustPressed() {
  * Limpa todos os estados (útil na transição entre cenas).
  */
 export function clearAll() {
+  keys.clear();
   justPressed.clear();
   pointerJustDown = false;
 }

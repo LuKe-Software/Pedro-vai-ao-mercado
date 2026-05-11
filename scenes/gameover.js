@@ -10,17 +10,15 @@ let blinkTimer = 0;
 let blinkOn = true;
 let reason = 'collision';
 let scoreMeters = 0;
-let livesLeft = 0;
 let moneyLeft = 0;
 
 export default {
   enter(payload = {}) {
     clearAll();
     blinkTimer = 0; blinkOn = true;
-    reason     = payload.reason || 'collision';
-    scoreMeters = Math.floor((payload.score || 0) / 10);
-    livesLeft  = payload.lives ?? 0;
-    moneyLeft  = payload.money ?? 0;
+    reason      = payload.reason || 'collision';
+    scoreMeters = payload.score || 0;
+    moneyLeft   = payload.money ?? 0;
   },
 
   update(dt) {

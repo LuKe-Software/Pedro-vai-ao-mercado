@@ -82,7 +82,7 @@ export default {
           const bonus = timeLeft * 10;
           const total = score + bonus;
           updateHighScore(total);
-          sceneManager.switch('victory', { score, timeLeft, bonus, worldDistance });
+          sceneManager.switch('victory', { score, timeLeft, bonus, total, worldDistance });
         } else {
           sceneManager.switch('gameover', { reason: deathReason, score, lives, money });
         }

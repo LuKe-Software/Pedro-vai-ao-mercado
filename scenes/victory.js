@@ -9,7 +9,7 @@ import { loadState } from '../storage.js';
 
 let blinkTimer = 0;
 let blinkOn = true;
-let score = 0, timeLeft = 0, bonus = 0, distMeters = 0, highScore = 0, isNewRecord = false;
+let score = 0, timeLeft = 0, bonus = 0, total = 0, distMeters = 0, highScore = 0, isNewRecord = false;
 
 export default {
   enter(payload = {}) {
@@ -18,10 +18,11 @@ export default {
     score = payload.score || 0;
     timeLeft = payload.timeLeft || 0;
     bonus = payload.bonus || 0;
+    total = payload.total || 0;
     distMeters = Math.floor((payload.worldDistance || 0) / 10);
     const state = loadState();
     highScore = state.highScore || 0;
-    isNewRecord = score >= highScore;
+    isNewRecord = total > highScore;
   },
 
   update(dt) {
@@ -100,7 +101,7 @@ export default {
     ctx.fillStyle = P.SUN_YELLOW;
     ctx.font = 'bold 6px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(`PONTOS: ${Math.floor(score / 10)}`, W / 2, 126);
+    ctx.fillText(`PONTOS: ${total}`, W / 2, 126);
 
     // Novo recorde
     if (isNewRecord) {
@@ -110,7 +111,7 @@ export default {
     } else {
       ctx.fillStyle = '#555';
       ctx.font = '4px monospace';
-      ctx.fillText(`Recorde: ${Math.floor(highScore / 10)} pts`, W / 2, 142);
+      ctx.fillText(`Recorde: ${highScore} pts`, W / 2, 142);
     }
 
     // Press space

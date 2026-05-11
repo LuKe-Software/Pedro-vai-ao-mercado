@@ -6,7 +6,7 @@ import { wasActionJustPressed, wasJustPressed, clearAll } from '../engine/input.
 import { PALETTE as P } from '../assets/palette.js';
 import { sceneManager } from '../engine/sceneManager.js';
 import { audioInit, toggleMute, isMuted } from '../audio/synth.js';
-import { musicStart, isMusicPlaying, musicStop } from '../audio/music.js';
+import { musicStart, isMusicPlaying } from '../audio/music.js';
 import { drawPedroSprite } from '../entities/pedro.js';
 import { loadState } from '../storage.js';
 
@@ -158,7 +158,7 @@ export default {
     ctx.fillStyle = highScore > 0 ? '#AAA' : '#444';
     ctx.font = '4px monospace';
     ctx.textAlign = 'left';
-    ctx.fillText(highScore > 0 ? `REC: ${Math.floor(highScore / 10)}m` : '', 3, H - 5);
+    ctx.fillText(highScore > 0 ? `REC: ${highScore} pts` : '', 3, H - 5);
 
     if (blinkOn) {
       ctx.fillStyle = P.WHITE;
